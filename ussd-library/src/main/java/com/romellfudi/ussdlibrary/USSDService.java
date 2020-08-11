@@ -62,14 +62,7 @@ public class USSDService extends AccessibilityService {
             USSDController.instance.callbackInvoke.over(event.getText().get(0).toString());
         } else if (isUSSDWidget(event)) {
             // ready for work
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < event.getText().size(); i++) {
-                sb.append(event.getText().get(i));
-                if (i != event.getText().size() - 1) {
-                    sb.append("\n");
-                }
-            }
-            String response = sb.toString();
+            String response = event.getText().get(0).toString();
             if (notInputText(event)) {
                 // not more input panels / LAST MESSAGE
                 // sent 'OK' button
